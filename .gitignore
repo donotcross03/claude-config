@@ -1,0 +1,15 @@
+plugins/
+projects/
+cache/
+mcp-needs-auth-cache.json
+todos.json
+statsig/
+backups/
+debug/
+file-history/
+ide/
+plans/
+shell-snapshots/
+stats-cache.json
+todos/
+.DS_Store
