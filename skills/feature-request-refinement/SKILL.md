@@ -18,13 +18,13 @@ This skill is **investigative and additive**. Each stage appends to the document
 |---------|----------|
 | `/frr-partner [Team, Person]` | Request originates from a partner team building on the platform |
 | `/frr-customer [Agency, Person]` | Request originates from an agency / end customer |
-| `/frr-self` | Vlad is originating the request himself |
+| `/frr-self` | User is originating the request |
 
 ### Invocation Examples
 ```
-/frr-partner [Avigilon, Todd Piatt] support correlation service linking CAD incidents to VESTA 911 call IDs for reporting consolidation
-/frr-customer [Nashville PD, John Smith] when unit is dispatched, helicopter ETA should show on map
-/frr-self correlation service to link CAD incidents across cloud API and on-prem push paths to VESTA call IDs for partner reporting
+/frr-partner [Partner Co, Contact Name] support correlation service linking CAD incidents to 911 call IDs for reporting consolidation
+/frr-customer [Metro PD, Contact Name] when unit is dispatched, helicopter ETA should show on map
+/frr-self correlation service to link CAD incidents across cloud API and on-prem push paths to 911 call IDs for partner reporting
 ```
 
 ---
@@ -50,7 +50,7 @@ This skill is **investigative and additive**. Each stage appends to the document
 - Missing problem statement: ⛔ hard block — return challenge before proceeding
 
 ### `/frr-self`
-- Vlad is originating — problem context is already known
+- User is originating — problem context is already known
 - Skip requestor validation
 - Focus on making the brief complete enough to hand off
 - Gap hints: both technical and operational as appropriate
@@ -153,7 +153,7 @@ After generating the brief, always save it as a `.md` file to:
 Filename format: `YYYY-MM-DD-[slug].md`
 where slug is a 3-5 word kebab-case summary of the request topic.
 
-Example: `2026-03-08-correlation-service-cad-vesta.md`
+Example: `2026-03-08-correlation-service-cad-911.md`
 
 Also render the brief inline in the conversation.
 
@@ -293,16 +293,16 @@ Are success criteria definable?
 
 ### Example 1 — `/frr-partner`
 ```
-/frr-partner [Avigilon, Todd Piatt] support correlation service linking CAD incidents
-created via cloud API or pushed to cloud from on-prem to VESTA 911 call IDs to allow
+/frr-partner [Partner Co, Contact Name] support correlation service linking CAD incidents
+created via cloud API or pushed to cloud from on-prem to 911 call IDs to allow
 reporting capabilities that consolidate historically disjointed data
 ```
-**Underlying problem:** Reporting systems cannot reconstruct the full incident lifecycle because there is no persistent correlation key linking CAD incident IDs to VESTA 911 Call IDs across creation paths.
+**Underlying problem:** Reporting systems cannot reconstruct the full incident lifecycle because there is no persistent correlation key linking CAD incident IDs to 911 Call IDs across creation paths.
 **Key gaps flagged:** Is correlation 1:1 or 1:many? Real-time or async? Historical backfill strategy? Who owns the correlation service?
 
 ### Example 2 — `/frr-customer`
 ```
-/frr-customer [Nashville PD, John Smith] when unit is dispatched, helicopter ETA
+/frr-customer [Metro PD, Contact Name] when unit is dispatched, helicopter ETA
 should show on map
 ```
 **Underlying problem:** Dispatchers need real-time helicopter location and ETA on CAD map for air resource coordination during active incidents.
