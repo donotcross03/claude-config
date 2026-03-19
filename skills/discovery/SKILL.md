@@ -2,12 +2,12 @@
 name: discovery
 description: >
   Run structured discovery cycles for public safety software sales and customer conversations.
-  Use this skill whenever Vlad is preparing for a discovery call, customer scoping meeting,
+  Use this skill whenever preparing for a discovery call, customer scoping meeting,
   sales conversation, or any pre-engagement where the goal is to understand a problem before
   proposing a solution. Trigger on phrases like "discovery prep", "prep for the call",
   "what should I ask", "help me frame the problem", "derisking the conversation",
   "questions for [customer]", or any meeting prep that centers on understanding customer
-  scenarios, systems, stakeholders, or timelines. Also trigger when Vlad pastes call notes
+  scenarios, systems, stakeholders, or timelines. Also trigger when the user pastes call notes
   or a transcript and says "apply", "capture this", "process this", or "synthesize what we
   learned." Four commands drive the workflow: /discovery prep, /discovery capture,
   /discovery synthesize, /discovery brief. Always use this skill — do not attempt
@@ -70,7 +70,7 @@ Output: The existing document updated with:
 - Do not generate generic questions. Every question must connect to a specific assumption.
 - Flag any assumption that, if wrong, would invalidate the entire solution direction.
 - In warm mode: do not re-ask questions already answered. Focus on what's open or contradicted.
-- Public safety domain defaults: assume P1 or CC CAD unless stated otherwise. Assume
+- Public safety domain defaults: assume enterprise CAD unless stated otherwise. Assume
   multi-agency if county or metro. Assume CJIS sensitivity for anything touching identity
   or query data. Assume dispatcher workload is the primary constraint.
 
@@ -169,7 +169,7 @@ If the user pastes a transcript or notes and says any of the above, treat it as 
 **Before logging, determine call type.** Infer from context or ask:
 - `[Customer]` — the customer/agency was on the call (decision-makers, operators)
 - `[Pre-sales/Partner]` — sales rep, solutions partner, or channel contact (not end customer)
-- `[Internal]` — MSI internal alignment only (no customer or partner present)
+- `[Internal]` — internal alignment only (no customer or partner present)
 
 Label the capture entry accordingly: `### Call [N] — [date] [type]`
 
@@ -230,7 +230,7 @@ Who owns it, and by when if known.
 
 **Synthesis Rules:**
 - The refined problem statement must be writable without using any product name.
-  If you can't describe the problem without naming CommandCentral or RaTX, the
+  If you can't describe the problem without naming a specific product, the
   problem isn't defined yet.
 - Do not synthesize if more than two critical assumptions are still open — flag this
   and recommend another capture call instead.
@@ -262,7 +262,7 @@ if already in context.
 
 2. Known Agencies & Primary Champion
    Table: Agency | Role | CAD | Status
-   MSI team members and their roles.
+   Vendor team members and their roles.
    Callout: who the decision-maker is and whether they've been identified.
 
 3. Why Now
@@ -308,10 +308,10 @@ Apply these unless the customer context contradicts them:
 
 | Assumption | Default |
 |---|---|
-| CAD platform | PremierOne or CommandCentral CAD |
-| Deployment | On-prem P1 + cloud CC CAD hybrid |
+| CAD platform | Enterprise CAD (on-prem or cloud) |
+| Deployment | On-prem, cloud, or hybrid |
 | Agency structure | Multi-discipline (PD, FD, EMS) — often multi-agency |
-| Radio | LMR, Motorola infrastructure, talk-group based |
+| Radio | LMR, P25 or similar land mobile infrastructure, talk-group based |
 | Compliance | CJIS-sensitive — any identity or query data |
 | Primary user | Dispatcher — high workload, low tolerance for friction |
 | Decision maker | Typically IT director + dispatch supervisor jointly |
